@@ -1,0 +1,600 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Montserrat", sans-serif;
+    color: #a28089; /* Heavy Purple for body text */
+    background: linear-gradient(
+        135deg,
+        rgba(214, 234, 244, 0.5),
+        rgba(208, 189, 244, 0.3)
+    );
+
+    overflow-x: hidden;
+}
+
+.hero-slider {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transform: scale(1.2);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    filter: blur(4px);
+}
+
+.slide::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* background: linear-gradient(135deg, rgba(160, 210, 235, 0.5), rgba(208, 189, 244, 0.3)); Ice Cold to Medium Purple */
+}
+
+.slide.active {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0);
+}
+
+.slide-content {
+    position: absolute;
+    top: 50%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #fff;
+    z-index: 1;
+}
+.slide-content h1 {
+    color: #ffc400 !important;
+    text-shadow: 0 0 8px #000000b9; /* Ice Cold */
+}
+
+.slider-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(160, 210, 235, 0.5); /* Ice Cold */
+    color: #fff;
+    padding: 0.8rem;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    z-index: 2;
+    border-radius: 50%;
+}
+
+.slider-nav:hover {
+    background: rgba(160, 210, 235, 0.8); /* Ice Cold */
+    box-shadow: 0 0 12px rgba(208, 189, 244, 0.6); /* Medium Purple glow */
+}
+
+.prev {
+    left: 1.5rem;
+}
+
+.next {
+    right: 1.5rem;
+}
+
+.main-header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.95); /* Freeze Purple */
+    padding: 1rem 0;
+    z-index: 999;
+    box-shadow: 0 2px 10px rgba(162, 128, 137, 0.2); /* Heavy Purple */
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.main-header nav {
+    max-width: 100%;
+    width: 70%;
+    /* margin: 0 auto; */
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    align-items: center;
+}
+
+.main-header a {
+    color: #8458b3; /* Purple Pain */
+    text-decoration: none;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 1.1rem;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.main-header a::after {
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #a0d2eb; /* Ice Cold */
+    transition: width 0.3s ease;
+}
+
+.main-header a:hover::after {
+    width: 100%;
+}
+
+.main-header a:hover {
+    color: #d0bdf4; /* Medium Purple */
+    text-shadow: 0 0 8px rgba(208, 189, 244, 0.5); /* Medium Purple */
+}
+
+.container {
+    max-width: 1100px;
+    margin: 2rem auto;
+    padding: 3rem;
+    position: relative;
+    z-index: 10;
+    background: rgba(229, 234, 245, 0); /* Freeze Purple */
+}
+
+h1 {
+    font-family: "Great Vibes", cursive;
+    font-size: 4.5rem;
+    color: #8458b3; /* Purple Pain */
+    margin-bottom: 1rem;
+    text-shadow: 0 0 8px rgba(208, 189, 244, 0.5); /* Medium Purple */
+}
+
+.quote {
+    font-family: "Great Vibes", cursive;
+    font-size: 3.5rem;
+    font-weight: 600;
+    color: #ffc400;
+    text-shadow: 0 0 8px rgba(18, 18, 19, 0.5); /* Ice Cold */
+}
+
+.date {
+    font-family: "Montserrat", sans-serif;
+    font-size: 2rem;
+    color: #fff;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 800;
+    text-shadow: 0 0 8px rgba(18, 18, 19, 0.5); /* Ice Cold */
+}
+
+.invitation {
+    text-align: center;
+    margin: 4rem 0;
+}
+
+h2 {
+    font-family: "Great Vibes", cursive;
+    font-size: 2.8rem;
+    color: #8458b3; /* Purple Pain */
+    margin-bottom: 1.5rem;
+    text-align: center;
+    text-shadow: 0 0 8px rgba(208, 189, 244, 0.5); /* Medium Purple */
+}
+
+.names {
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.8rem;
+    color: #a28089; /* Heavy Purple */
+    margin: 1rem 0;
+}
+
+.and {
+    font-family: "Great Vibes", cursive;
+    font-size: 3rem;
+    color: #d0bdf4; /* Medium Purple */
+    margin: 1rem 0;
+    text-shadow: 0 0 8px rgba(208, 189, 244, 0.5); /* Medium Purple */
+}
+
+.invite-text {
+    font-size: 1.1rem;
+    color: #a28089; /* Heavy Purple */
+    margin-top: 1rem;
+}
+
+.couple-profiles {
+    display: flex;
+    gap: 3rem;
+    margin: 4rem 0;
+}
+
+.profile {
+    flex: 1;
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(162, 128, 137, 0.2); /* Heavy Purple */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 20px rgba(208, 189, 244, 0.3); /* Medium Purple */
+}
+
+.profile-image {
+    height: 260px;
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.95);
+    transition: filter 0.3s ease;
+}
+
+.profile:hover .profile-image {
+    filter: brightness(1);
+}
+
+.profile-content {
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.profile-content h3 {
+    font-family: "Great Vibes", cursive;
+    font-size: 2rem;
+    color: #8458b3; /* Purple Pain */
+    margin-bottom: 0.8rem;
+    text-shadow: 0 0 6px rgba(208, 189, 244, 0.4); /* Medium Purple */
+}
+
+.profile-name {
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.3rem;
+    color: #a28089; /* Heavy Purple */
+    margin-bottom: 0.8rem;
+}
+
+.profile-description {
+    color: #a28089; /* Heavy Purple */
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+}
+
+.parent-names {
+    font-family: "Montserrat", sans-serif;
+    font-size: 1rem;
+    color: #a28089; /* Heavy Purple */
+    margin-bottom: 1rem;
+}
+
+.profile-details {
+    color: #a28089; /* Heavy Purple */
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.timeline {
+    position: relative;
+    max-width: 900px;
+    margin: 5rem auto;
+}
+
+.timeline::before {
+    content: "";
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    width: 3px;
+    height: 100%;
+    background: linear-gradient(
+        to bottom,
+        #a0d2eb,
+        #d0bdf4
+    ); /* Ice Cold to Medium Purple */
+    transform: translateX(-50%);
+}
+.timeline h2 {
+    margin: 30px 0;
+}
+.timeline-item {
+    position: relative;
+    margin: 3rem 0;
+}
+
+.timeline-content {
+    position: relative;
+    width: calc(50% - 30px);
+    padding: 1.5rem;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(162, 128, 137, 0.2); /* Heavy Purple */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.timeline-item:nth-child(odd) .timeline-content {
+    left: 0;
+}
+
+.timeline-item:nth-child(even) .timeline-content {
+    left: calc(50% + 30px);
+}
+
+.timeline-content:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(208, 189, 244, 0.3); /* Medium Purple */
+}
+
+.timeline-content h3 {
+    font-family: "Great Vibes", cursive;
+    font-size: 1.8rem;
+    color: #8458b3; /* Purple Pain */
+    margin-bottom: 0.8rem;
+}
+
+.timeline-content p {
+    color: #a28089; /* Heavy Purple */
+    font-size: 0.95rem;
+}
+
+.venue-details {
+    margin: 4rem 0;
+}
+
+.venue-card {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(162, 128, 137, 0.2); /* Heavy Purple */
+    text-align: center;
+    padding: 1.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.venue-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 20px rgba(208, 189, 244, 0.3); /* Medium Purple */
+}
+
+.venue-image {
+    height: 400px;
+    background-size: cover;
+    background-position: center;
+    margin-top: 1.5rem;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.venue-image:hover {
+    transform: scale(1.05);
+}
+
+.gallery {
+    margin: 4rem 0;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.gallery-item {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(162, 128, 137, 0.2); /* Heavy Purple */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 20px rgba(208, 189, 244, 0.3); /* Medium Purple */
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+.countdown {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 2rem;
+    justify-content: center;
+}
+
+.countdown-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(135deg, #a0d2eb, #fff); /* Ice Cold to white */
+    padding: 1rem;
+    border-radius: 10px;
+    min-width: 90px;
+    box-shadow: 0 4px 12px rgba(162, 128, 137, 0.2); /* Heavy Purple */
+    transition: transform 0.3s ease;
+}
+
+.countdown-item:hover {
+    transform: scale(1.1);
+}
+
+.countdown-number {
+    font-family: "Montserrat", sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #8458b3; /* Purple Pain */
+    margin-bottom: 0.5rem;
+}
+
+.countdown-label {
+    font-family: "Montserrat", sans-serif;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #a28089; /* Heavy Purple */
+}
+
+.footer {
+    text-align: center;
+    margin: 4rem 0 2rem;
+    padding: 2rem;
+    background: rgba(229, 234, 245, 0.95); /* Freeze Purple */
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(162, 128, 137, 0.2); /* Heavy Purple */
+    border-top: 2px solid transparent;
+    border-image: linear-gradient(to right, #a0d2eb, #d0bdf4) 1; /* Ice Cold to Medium Purple */
+}
+
+.footer h2 {
+    font-family: "Great Vibes", cursive;
+    font-size: 2.5rem;
+    color: #8458b3; /* Purple Pain */
+    margin-bottom: 1rem;
+    text-shadow: 0 0 8px rgba(208, 189, 244, 0.5); /* Medium Purple */
+}
+
+.footer-text {
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.1rem;
+    color: #a28089; /* Heavy Purple */
+    margin-bottom: 0.5rem;
+}
+
+.footer-subtext {
+    font-family: "Great Vibes", cursive;
+    font-size: 1.5rem;
+    color: #d0bdf4; /* Medium Purple */
+    text-shadow: 0 0 6px rgba(208, 189, 244, 0.4); /* Medium Purple */
+}
+
+@media (max-width: 768px) {
+      .slide {
+        background-size: cover;
+        background-position-x: 75%;
+        background-repeat: no-repeat;
+    }  
+  
+  .slide-content {
+        top: none;
+        top: 70%;
+        left: 50%;
+    }
+
+    .main-header {
+        flex-direction: column;
+        top: 3%;
+    }
+
+    .main-header nav {
+        flex-wrap: wrap;
+        gap: 1rem;
+        padding: 0 1rem;
+        width: 100%;
+    }
+
+    h1 {
+        font-size: 3rem;
+    }
+
+    .quote {
+        font-size: 1.8rem;
+    }
+
+    .container {
+        padding: 2rem 1rem;
+        margin: 1rem;
+    }
+
+    .couple-profiles {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .timeline::before {
+        left: 20px;
+    }
+
+    .timeline-content {
+        width: calc(100% - 60px);
+        margin-left: 60px;
+    }
+
+    .timeline-item:nth-child(even) .timeline-content {
+        left: 0;
+    }
+
+    .venue-image {
+        flex-wrap: wrap;
+        height: 1000px !important;
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .countdown {
+        flex-wrap: wrap;
+        gap: 1rem;
+        align-items: center;
+    }
+
+    .countdown-item {
+        min-width: 80px;
+    }
+
+    .countdown-number {
+        font-size: 1.8rem;
+    }
+
+    .countdown-label {
+        font-size: 0.75rem;
+    }
+
+    .footer {
+        padding: 1.5rem;
+        margin: 2rem 0 0rem;
+    }
+
+    .footer h2 {
+        font-size: 2rem;
+    }
+
+    .footer-text {
+        font-size: 1rem;
+    }
+
+    .footer-subtext {
+        font-size: 1.3rem;
+    }
+}
